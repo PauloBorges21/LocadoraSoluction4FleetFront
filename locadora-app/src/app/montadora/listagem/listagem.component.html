@@ -1,0 +1,26 @@
+<div class="montadora-container">
+  <h2>Montadoras</h2>
+  <button mat-raised-button color="primary" routerLink="/montadora/cadastro">+ Nova Montadora</button>
+
+  <table mat-table [dataSource]="montadoras" class="mat-elevation-z8 full-width-table">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let montadora">{{ montadora.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let montadora">
+       <button mat-icon-button color="accent" [routerLink]="['/montadora/editar', montadora.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="excluir(montadora.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nome','acoes']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nome','acoes'];"></tr>
+  </table>
+</div>

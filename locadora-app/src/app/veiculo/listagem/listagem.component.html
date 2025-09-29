@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Lista de Veículos</h2>
+
+  <button mat-raised-button color="primary" routerLink="/veiculos/cadastro">
+    Novo Veículo
+  </button>
+
+  <table mat-table [dataSource]="veiculos" class="mat-elevation-z8 full-width-table">
+    <ng-container matColumnDef="nomeLocadoura">
+      <th mat-header-cell *matHeaderCellDef> Locadora </th>
+      <td mat-cell *matCellDef="let v"> {{ v.nomeLocadoura }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeMontadora">
+      <th mat-header-cell *matHeaderCellDef> Montadora </th>
+      <td mat-cell *matCellDef="let v"> {{ v.nomeMontadora }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeModelo">
+      <th mat-header-cell *matHeaderCellDef> Modelo </th>
+      <td mat-cell *matCellDef="let v"> {{ v.nomeModelo }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="placa">
+      <th mat-header-cell *matHeaderCellDef> Placa </th>
+      <td mat-cell *matCellDef="let v"> {{ v.placa }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let v"> {{ v.status }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let v">
+        <button mat-icon-button color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

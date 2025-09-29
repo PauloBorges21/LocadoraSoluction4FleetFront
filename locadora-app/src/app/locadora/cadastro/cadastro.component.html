@@ -1,0 +1,68 @@
+<div class="cadastro-container">
+  <h2>Cadastro de Locadora</h2>
+
+  <form (ngSubmit)="salvarLocadora()">
+
+    <!-- Dados da locadora -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nome Fantasia</mat-label>
+      <input matInput [(ngModel)]="locadora.nomeFantasia" name="nomeFantasia" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Razão Social</mat-label>
+      <input matInput [(ngModel)]="locadora.razaoSocial" name="razaoSocial" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>CNPJ</mat-label>
+      <input matInput [(ngModel)]="locadora.cnpj" name="cnpj" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>E-mail</mat-label>
+      <input matInput type="email" [(ngModel)]="locadora.email" name="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Telefone</mat-label>
+      <input matInput [(ngModel)]="locadora.telefone" name="telefone">
+    </mat-form-field>
+
+    <h3>Endereço</h3>
+
+    <!-- Endereço -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>CEP</mat-label>
+      <input matInput [(ngModel)]="locadora.cep" name="cep">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Rua</mat-label>
+      <input matInput [(ngModel)]="locadora.rua" name="rua">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Número</mat-label>
+      <input matInput [(ngModel)]="locadora.numero" name="numero">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Bairro</mat-label>
+      <input matInput [(ngModel)]="locadora.bairro" name="bairro">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Estado</mat-label>
+      <input matInput [(ngModel)]="locadora.estado" name="estado">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Cidade</mat-label>
+      <input matInput [(ngModel)]="locadora.cidade" name="cidade">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Salvar Locadora</button>
+
+  </form>
+</div>
