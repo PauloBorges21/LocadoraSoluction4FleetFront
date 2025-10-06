@@ -1,0 +1,26 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+}
+
+mat-card {
+  width: 350px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: center;
+  background-color: #fff;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.btn-login {
+  width: 100%;
+  margin-top: 20px;
+}

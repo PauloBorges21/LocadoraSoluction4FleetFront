@@ -1,0 +1,69 @@
+<div class="locadora-container" style="padding: 20px">
+  <mat-card>
+    <mat-card-title>Cadastro de Locadoras</mat-card-title>
+    <mat-card-content>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <button mat-raised-button color="primary" routerLink="/locadora/cadastro">
+          + Nova Locadora
+        </button>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Procurar</mat-label>
+          <input matInput placeholder="Pesquisa" (input)="search($event)">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <!-- Tabela -->
+      <table mat-table [dataSource]="locadoras" class="mat-elevation-z8 full-width-table">
+
+        <!-- Nome Fantasia -->
+        <ng-container matColumnDef="nomeFantasia">
+          <th mat-header-cell *matHeaderCellDef> Nome Fantasia </th>
+          <td mat-cell *matCellDef="let locadora"> {{ locadora.nomeFantasia }} </td>
+        </ng-container>
+
+        <!-- Razão Social -->
+        <ng-container matColumnDef="razaoSocial">
+          <th mat-header-cell *matHeaderCellDef> Razão Social </th>
+          <td mat-cell *matCellDef="let locadora"> {{ locadora.razaoSocial }} </td>
+        </ng-container>
+
+        <!-- CNPJ -->
+        <ng-container matColumnDef="cnpj">
+          <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+          <td mat-cell *matCellDef="let locadora"> {{ locadora.cnpj }} </td>
+        </ng-container>
+
+        <!-- Email -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> E-mail </th>
+          <td mat-cell *matCellDef="let locadora"> {{ locadora.email }} </td>
+        </ng-container>
+
+        <!-- Telefone -->
+        <ng-container matColumnDef="telefone">
+          <th mat-header-cell *matHeaderCellDef> Telefone </th>
+          <td mat-cell *matCellDef="let locadora"> {{ locadora.telefone }} </td>
+        </ng-container>
+
+        <!-- Ações -->
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef> Ações </th>
+          <td mat-cell *matCellDef="let locadora">
+            <button mat-icon-button color="accent" [routerLink]="['/locadora/editar', locadora.id]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['nomeFantasia','razaoSocial','cnpj','email','telefone','acoes']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['nomeFantasia','razaoSocial','cnpj','email','telefone','acoes']"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

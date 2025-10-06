@@ -2,30 +2,44 @@ import { NgModule } from '@angular/core';
 import { flush } from '@angular/core/testing';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { CadastroComponent } from './locadora/cadastro/cadastro.component';
-import { EditarComponent } from './locadora/editar/editar.component';
-import { MontadoraListagemComponent } from './montadora/listagem/listagem.component';
-import { MontadoraEditarComponent } from './montadora/editar/editar.component';
-import { MontadoraCadastroComponent } from './montadora/cadastro/cadastro.component';
-// import { CadastroComponent as MontadoraCadastroComponent } from './montadora/cadastro/cadastro.component';
-import { VeiculoListagemComponent } from './veiculo/listagem/listagem.component';
-import { VeiculoCadastroComponent } from './veiculo/cadastro/cadastro.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CadastroComponent } from './pages/locadora/cadastro/cadastro.component';
+import { EditarComponent } from './pages/locadora/editar/editar.component';
+import { MontadoraListagemComponent } from './pages/montadora/listagem/listagem.component';
+import { MontadoraEditarComponent } from './pages/montadora/editar/editar.component';
+import { MontadoraCadastroComponent } from './pages/montadora/cadastro/cadastro.component';
+import { VeiculoListagemComponent } from './pages/veiculo/listagem/listagem.component';
+import { VeiculoCadastroComponent } from './pages/veiculo/cadastro/cadastro.component';
+
+import { ModeloListagemComponent } from './pages/modelo/listagem/listagem.component';
+import { ModeloEditarComponent } from './pages/modelo/editar/editar.component';
+import { ModeloCadastroComponent } from './pages/modelo/cadastro/cadastro.component';
+
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+
   //Locadora
-  { path: 'locadora/cadastro', component: CadastroComponent },
-  { path: 'locadora/editar/:id', component: EditarComponent },
+  { path: 'locadora/cadastro', component: CadastroComponent, canActivate: [AuthGuard] },
+  { path: 'locadora/editar/:id', component: EditarComponent, canActivate: [AuthGuard] },
 
   //Montadora
-  { path: 'montadora', component: MontadoraListagemComponent },
-  { path: 'montadora/cadastro', component: MontadoraCadastroComponent },
-  { path: 'montadora/editar/:id', component: MontadoraEditarComponent },  
-  { path: 'veiculos', component: VeiculoListagemComponent },
-  { path: 'veiculos/cadastro', component: VeiculoCadastroComponent },
-  // { path: 'montadoras', component: MontadorasComponent },
-  // { path: 'modelos', component: ModelosComponent },
+  { path: 'montadora', component: MontadoraListagemComponent, canActivate: [AuthGuard] },
+  { path: 'montadora/cadastro', component: MontadoraCadastroComponent, canActivate: [AuthGuard] },
+  { path: 'montadora/editar/:id', component: MontadoraEditarComponent, canActivate: [AuthGuard] },
+
+  //Veiculo
+  { path: 'veiculo', component: VeiculoListagemComponent, canActivate: [AuthGuard] },
+  { path: 'veiculo/cadastro', component: VeiculoCadastroComponent, canActivate: [AuthGuard] },
+
+  // Modelo
+  { path: 'modelo', component: ModeloListagemComponent, canActivate: [AuthGuard] },
+  { path: 'modelo/cadastro', component: ModeloCadastroComponent, canActivate: [AuthGuard] },
+  { path: 'modelo/editar/:id', component: ModeloEditarComponent, canActivate: [AuthGuard] },
 
   { path: '**', redirectTo: 'home' } // rota coringa
 ];
@@ -34,4 +48,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

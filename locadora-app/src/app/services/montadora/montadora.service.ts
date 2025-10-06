@@ -5,27 +5,29 @@ import { Montadora } from 'src/app/models/Montadora/montadora.model';
 import { CreateMontadora } from 'src/app/models/Montadora/montadora.create.model';
 import { UpdateMontadora } from 'src/app/models/Montadora/montadora.update.model';
 import { environment } from 'src/environments/environment.development';
+import { Response } from '../../models/Response';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MontadoraService {
 
-private apiUrl = `${environment.ApiUrl}/Montadora`;
+  private apiUrl = `${environment.ApiUrl}/Montadora`;
 
   constructor(private http: HttpClient) { }
 
-  getMontadoras(): Observable<Montadora[]> {
-    return this.http.get<Montadora[]>(this.apiUrl);
+  getMontadoras(): Observable<Response<Montadora[]>> {
+    return this.http.get<Response<Montadora[]>>(this.apiUrl);
   }
 
-  getMontadoraById(id: string): Observable<Montadora> {
-    return this.http.get<Montadora>(`${this.apiUrl}/${id}/busca-por-id`);
+  getMontadoraById(id: string): Observable<Response<Montadora>> {
+    return this.http.get<Response<Montadora>>(`${this.apiUrl}/${id}/busca-por-id`);
   }
 
-createMontadora(payload: { montadoras: CreateMontadora[] }): Observable<any> {
-  return this.http.post(this.apiUrl, payload);
-}
+  createMontadora(payload: { montadoras: CreateMontadora[] }): Observable<any> {
+    return this.http.post(this.apiUrl, payload);
+  }
 
 
   updateMontadora(id: string, montadora: UpdateMontadora): Observable<Montadora> {

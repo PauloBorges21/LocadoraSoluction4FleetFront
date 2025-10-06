@@ -2,21 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CadastroComponent } from './locadora/cadastro/cadastro.component';
-import { ListagemComponent } from './locadora/listagem/listagem.component';
-import { EditarComponent } from './locadora/editar/editar.component';
-
-import { MontadoraCadastroComponent } from './montadora/cadastro/cadastro.component';
-import { MontadoraListagemComponent } from './montadora/listagem/listagem.component';
-import { MontadoraEditarComponent } from './montadora/editar/editar.component';
-
-import { VeiculoListagemComponent } from './veiculo/listagem/listagem.component';
-import { VeiculoCadastroComponent } from './veiculo/cadastro/cadastro.component';
 // Angular Material
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -32,6 +17,26 @@ import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CadastroComponent } from './pages/locadora/cadastro/cadastro.component';
+import { ListagemComponent } from './pages/locadora/listagem/listagem.component';
+import { EditarComponent } from './pages/locadora/editar/editar.component';
+
+import { MontadoraCadastroComponent } from './pages/montadora/cadastro/cadastro.component';
+import { MontadoraListagemComponent } from './pages/montadora/listagem/listagem.component';
+import { MontadoraEditarComponent } from './pages/montadora/editar/editar.component';
+
+import { VeiculoListagemComponent } from './pages/veiculo/listagem/listagem.component';
+import { VeiculoCadastroComponent } from './pages/veiculo/cadastro/cadastro.component';
+
+
+import { LoginComponent } from './pages/login/login.component';
+import { ModeloListagemComponent } from './pages/modelo/listagem/listagem.component';
+import { ModeloCadastroComponent } from './pages/modelo/cadastro/cadastro.component'; 
+import { ModeloEditarComponent } from './pages/modelo/editar/editar.component';
 
 
 
@@ -46,7 +51,11 @@ import { MatOptionModule } from '@angular/material/core';
     MontadoraCadastroComponent,
     MontadoraEditarComponent,
     VeiculoCadastroComponent,
-    VeiculoListagemComponent
+    VeiculoListagemComponent,
+    LoginComponent,
+    ModeloListagemComponent,
+    ModeloCadastroComponent,
+    ModeloEditarComponent
   ],
   imports: [
     BrowserModule,

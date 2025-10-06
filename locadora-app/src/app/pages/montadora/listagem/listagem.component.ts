@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MontadoraService } from 'src/app/services/montadora/montadora.service';
 import { Montadora } from 'src/app/models/Montadora/montadora.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -15,8 +15,6 @@ export class MontadoraListagemComponent implements OnInit {
 
   constructor(
     private montadoraService: MontadoraService,
-    //private router: Router
-     //private route: ActivatedRoute,    
     private router: Router,
     private snackBar: MatSnackBar
   ) { }
@@ -25,11 +23,26 @@ export class MontadoraListagemComponent implements OnInit {
     this.carregarMontadoras();
   }
 
-  carregarMontadoras() {
-    this.montadoraService.getMontadoras().subscribe({
-      next: data => this.montadoras = data
-    });
-  }
+carregarMontadoras(): void {
+  this.montadoraService.getMontadoras().subscribe({
+    next: (response) => {
+      if (response.success && response.data) {
+        this.montadoras = response.data;
+      } else {
+        this.snackBar.open(response.message || 'Nenhuma montadora encontrada.', 'Fechar', {
+          duration: 3000
+        });
+      }
+    },
+    error: (err) => {
+      console.error('Erro ao buscar montadoras:', err);
+      this.snackBar.open('Erro ao carregar montadoras.', 'Fechar', {
+        duration: 3000
+      });
+    }
+  });
+}
+
 
   editar(id: string) {
     this.router.navigate(['/montadora/editar', id]);

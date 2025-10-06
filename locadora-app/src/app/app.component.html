@@ -16,7 +16,7 @@
         <mat-icon>apartment</mat-icon>
         <span>Locadoras</span>
       </a>
-      <a mat-list-item routerLink="/veiculos" routerLinkActive="active">
+      <a mat-list-item routerLink="/veiculo" routerLinkActive="active">
         <mat-icon>directions_car</mat-icon>
         <span>Veículos</span>
       </a>
@@ -24,10 +24,14 @@
         <mat-icon>factory</mat-icon>
         <span>Montadoras</span>
       </a>
-      <a mat-list-item routerLink="/modelos" routerLinkActive="active">
+      <a mat-list-item routerLink="/modelo" routerLinkActive="active">
         <mat-icon>list_alt</mat-icon>
         <span>Modelos</span>
       </a>
+      <button mat-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Sair
+      </button>
     </mat-nav-list>
   </mat-sidenav>
 
